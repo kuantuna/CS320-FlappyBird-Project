@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public class Login extends JPanel {
 
-    private JLabel usernameLabel, passwordLabel, errorMessage;
+    private JLabel usernameLabel, passwordLabel;
     private JTextField usernameField;
     private JPasswordField passwordField;
     private JButton loginButton;
@@ -39,6 +39,7 @@ public class Login extends JPanel {
         class LoginButtonActionListener implements ActionListener{
             @Override
             public void actionPerformed(ActionEvent e) {
+                // Db will be added this is just for test purposes
                 String usernameInput = usernameField.getText();
                 char[] passwordInput = passwordField.getPassword();
                 if(doesCredentialsExist(usernameInput, passwordInput)){
