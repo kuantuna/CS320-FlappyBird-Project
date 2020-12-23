@@ -1,17 +1,16 @@
 package gui;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
 
 public class Login extends JPanel {
 
-    private JLabel usernameLabel, passwordLabel;
-    private JTextField usernameField;
-    private JPasswordField passwordField;
-    private JButton loginButton;
+    private static JLabel usernameLabel, passwordLabel;
+    private static JTextField usernameField;
+    private static JPasswordField passwordField;
+    private static JButton loginButton;
 
     public Login(){
         setLayout(null);
@@ -43,19 +42,25 @@ public class Login extends JPanel {
                 String usernameInput = usernameField.getText();
                 char[] passwordInput = passwordField.getPassword();
                 if(doesCredentialsExist(usernameInput, passwordInput)){
-                    JOptionPane.showMessageDialog(((Component) e.getSource()).getParent(),"Success");
+                    JOptionPane.showMessageDialog(Main.getLoginPanel(),"Success");
+                    Main.getFrame().getContentPane().removeAll(); // Removes all panels
+                    Main.getFrame().add(Main.getEntrancePanel());
+                    Main.getFrame().revalidate();
                 }
                 else{
-                    JOptionPane.showMessageDialog(((Component) e.getSource()).getParent(),"Invalid credentials");
+                    JOptionPane.showMessageDialog(Main.getLoginPanel(),"Invalid credentials");
                 }
             }
         }
         loginButton.addActionListener(new LoginButtonActionListener());
     }
 
+    public static JTextField getUsernameField() { return usernameField; }
+    public static JPasswordField getPasswordField() { return passwordField; }
+
     private boolean doesCredentialsExist(String usernameInput, char[] passwordInput){
-        String registeredUsername1 = "Tuna";
-        char[] registeredPassword1 = "123456".toCharArray();
+        String registeredUsername1 = "123";
+        char[] registeredPassword1 = "123".toCharArray();
         return usernameInput.equals(registeredUsername1) && Arrays.equals(passwordInput, registeredPassword1);
     }
 }

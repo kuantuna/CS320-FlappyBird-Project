@@ -6,10 +6,10 @@ import java.awt.event.ActionListener;
 
 public class Register extends JPanel {
 
-    private JLabel usernameLabel, passwordLabel, passwordLabelAgain;
-    private JTextField usernameField;
-    private JPasswordField passwordField, passwordFieldAgain;
-    private JButton registerButton;
+    private static JLabel usernameLabel, passwordLabel, passwordLabelAgain;
+    private static JTextField usernameField;
+    private static JPasswordField passwordField, passwordFieldAgain;
+    private static JButton registerButton;
 
     public Register(){
         setLayout(null);
@@ -38,6 +38,7 @@ public class Register extends JPanel {
         passwordFieldAgain.setBounds(130,80,165,25);
         add(passwordFieldAgain);
 
+        // Register button
         registerButton = new JButton("Register");
         registerButton.setBounds(10, 110,90,25);
         add(registerButton);
@@ -45,7 +46,15 @@ public class Register extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // If username exists -> option pane
+
                 // If not -> save to the db
+                Login.getUsernameField().setText(usernameField.getText());
+                Login.getPasswordField().setText("");
+                usernameField.setText("");
+                passwordField.setText("");
+                passwordFieldAgain.setText("");
+                Main.getTabs().setSelectedIndex(0);
+                Main.getFrame().revalidate();
             }
         }
         registerButton.addActionListener(new RegisterButtonActionListener());

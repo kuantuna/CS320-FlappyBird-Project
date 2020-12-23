@@ -4,22 +4,39 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Main {
+
+    private static JFrame frame;
+    private static JTabbedPane tabs;
+    private static JPanel loginPanel, registerPanel, entrancePanel;
+
     public static void main(String [] args){
-        JFrame frame = new JFrame("Flappy Bird");
+        frame = new JFrame("Flappy Bird");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(650, 500);
         frame.setMinimumSize(new Dimension(650, 500));
-        // For tabs
-        JTabbedPane tabbedPane = new JTabbedPane();
+        tabs = new JTabbedPane();
 
-        JPanel loginPanel = new Login();
-        tabbedPane.add("Login", loginPanel);
-        JPanel registerPanel = new Register();
-        tabbedPane.add("Register", registerPanel);
-        frame.add(tabbedPane);
+        loginPanel = new Login();
+        tabs.add("Login", loginPanel);
+        registerPanel = new Register();
+        tabs.add("Register", registerPanel);
 
+        entrancePanel = new Entrance();
+
+        frame.add(tabs);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+    }
+
+    public static JFrame getFrame(){
+        return frame;
+    }
+    public static JTabbedPane getTabs(){
+        return tabs;
+    }
+    public static JPanel getLoginPanel() { return loginPanel; }
+    public static JPanel getEntrancePanel(){
+        return entrancePanel;
     }
 }
