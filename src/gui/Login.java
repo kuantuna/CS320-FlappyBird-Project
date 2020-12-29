@@ -1,6 +1,7 @@
 package gui;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
@@ -24,14 +25,11 @@ public class Login extends JPanel {
                 String usernameInput = usernameField.getText();
                 char[] passwordInput = passwordField.getPassword();
                 if(doesCredentialsExist(usernameInput, passwordInput)){
-                    JOptionPane.showMessageDialog(Gui.getLoginPanel(),"Success");
-                    Gui.getFrame().getContentPane().removeAll(); // Removes all panels
-                    Gui.getThread().start(); // Starting thread
-                    Gui.getFrame().add(Gui.getEntrancePanel());
-                    Gui.getFrame().revalidate();
+                    JOptionPane.showMessageDialog(((Component) e.getSource()).getParent(),"Success");
+                    Container.getCardLayout().show(Gui.getContainerPanel(),"2");
                 }
                 else{
-                    JOptionPane.showMessageDialog(Gui.getLoginPanel(),"Invalid credentials");
+                    JOptionPane.showMessageDialog(((Component) e.getSource()).getParent(),"Invalid credentials");
                 }
             }
         }

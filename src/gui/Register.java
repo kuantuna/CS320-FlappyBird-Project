@@ -28,8 +28,7 @@ public class Register extends JPanel {
                 usernameField.setText("");
                 passwordField.setText("");
                 passwordFieldAgain.setText("");
-                Gui.getTabs().setSelectedIndex(0);
-                Gui.getFrame().revalidate();
+                ContainerLR.getTabs().setSelectedIndex(0);
             }
         }
         registerButton.addActionListener(new RegisterButtonActionListener());
