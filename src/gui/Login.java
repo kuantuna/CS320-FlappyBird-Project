@@ -14,27 +14,9 @@ public class Login extends JPanel {
 
     public Login(){
         setLayout(null);
-
-        // Username label and username text field
-        usernameLabel = new JLabel("Username");
-        usernameLabel.setBounds(10, 20, 80, 25);
-        add(usernameLabel);
-        usernameField = new JTextField(20);
-        usernameField.setBounds(100, 20, 165, 25);
-        add(usernameField);
-
-        // Password label and password password field
-        passwordLabel = new JLabel("Password");
-        passwordLabel.setBounds(10, 50, 80, 25);
-        add(passwordLabel);
-        passwordField = new JPasswordField(20);
-        passwordField.setBounds(100,50,165,25);
-        add(passwordField);
-
-        // Login button
-        loginButton = new JButton("Login");
-        loginButton.setBounds(10, 80, 80, 25);
-        add(loginButton);
+        addUsername();
+        addPassword();
+        addLoginButton();
         class LoginButtonActionListener implements ActionListener{
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -42,17 +24,42 @@ public class Login extends JPanel {
                 String usernameInput = usernameField.getText();
                 char[] passwordInput = passwordField.getPassword();
                 if(doesCredentialsExist(usernameInput, passwordInput)){
-                    JOptionPane.showMessageDialog(Main.getLoginPanel(),"Success");
-                    Main.getFrame().getContentPane().removeAll(); // Removes all panels
-                    Main.getFrame().add(Main.getEntrancePanel());
-                    Main.getFrame().revalidate();
+                    JOptionPane.showMessageDialog(Gui.getLoginPanel(),"Success");
+                    Gui.getFrame().getContentPane().removeAll(); // Removes all panels
+                    Gui.getThread().start(); // Starting thread
+                    Gui.getFrame().add(Gui.getEntrancePanel());
+                    Gui.getFrame().revalidate();
                 }
                 else{
-                    JOptionPane.showMessageDialog(Main.getLoginPanel(),"Invalid credentials");
+                    JOptionPane.showMessageDialog(Gui.getLoginPanel(),"Invalid credentials");
                 }
             }
         }
         loginButton.addActionListener(new LoginButtonActionListener());
+    }
+
+    public void addUsername(){
+        usernameLabel = new JLabel("Username");
+        usernameLabel.setBounds(10, 20, 80, 25);
+        add(usernameLabel);
+        usernameField = new JTextField(20);
+        usernameField.setBounds(100, 20, 165, 25);
+        add(usernameField);
+    }
+
+    public void addPassword(){
+        passwordLabel = new JLabel("Password");
+        passwordLabel.setBounds(10, 50, 80, 25);
+        add(passwordLabel);
+        passwordField = new JPasswordField(20);
+        passwordField.setBounds(100,50,165,25);
+        add(passwordField);
+    }
+
+    public void addLoginButton(){
+        loginButton = new JButton("Login");
+        loginButton.setBounds(10, 80, 80, 25);
+        add(loginButton);
     }
 
     public static JTextField getUsernameField() { return usernameField; }
