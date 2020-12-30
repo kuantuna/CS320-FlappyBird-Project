@@ -26,7 +26,7 @@ public class Login extends JPanel {
                 char[] passwordInput = passwordField.getPassword();
                 if(doesCredentialsExist(usernameInput, passwordInput)){
                     JOptionPane.showMessageDialog(((Component) e.getSource()).getParent(),"Success");
-                    Main.getFrame().setMinimumSize(new Dimension(Gui.SCREEN_WIDTH, Gui.SCREEN_HEIGHT));
+                    Main.getFrame().setMinimumSize(new Dimension(Gui.SCREEN_WIDTH,Gui.SCREEN_HEIGHT));
                     Container.getCardLayout().show(Gui.getContainerPanel(),"2");
                 }
                 else{
@@ -42,7 +42,7 @@ public class Login extends JPanel {
         usernameLabel.setBounds(10, 20, 80, 25);
         this.add(usernameLabel);
         usernameField = new JTextField(20);
-        usernameField.setBounds(100, 20, 165, 25);
+        usernameField.setBounds(320, 20, 450, 25);
         this.add(usernameField);
     }
 
@@ -51,13 +51,13 @@ public class Login extends JPanel {
         passwordLabel.setBounds(10, 50, 80, 25);
         this.add(passwordLabel);
         passwordField = new JPasswordField(20);
-        passwordField.setBounds(100,50,165,25);
+        passwordField.setBounds(320,50,450,25);
         this.add(passwordField);
     }
 
     public void addLoginButton(){
         loginButton = new JButton("Login");
-        loginButton.setBounds(10, 80, 80, 25);
+        loginButton.setBounds(320, 80, 450, 25);
         this.add(loginButton);
     }
 

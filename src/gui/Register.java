@@ -39,7 +39,7 @@ public class Register extends JPanel {
         usernameLabel.setBounds(10, 20, 80, 25);
         this.add(usernameLabel);
         usernameField = new JTextField(20);
-        usernameField.setBounds(130, 20, 165, 25);
+        usernameField.setBounds(320, 20, 450, 25);
         this.add(usernameField);
     }
 
@@ -49,23 +49,23 @@ public class Register extends JPanel {
         passwordLabel.setBounds(10, 50, 80, 25);
         this.add(passwordLabel);
         passwordField = new JPasswordField(20);
-        passwordField.setBounds(130,50,165,25);
+        passwordField.setBounds(320,50,450,25);
         this.add(passwordField);
     }
 
     public void addPasswordAgain(){
         // Password label and password password field "again"
         JLabel passwordLabelAgain = new JLabel("Password (Again)");
-        passwordLabelAgain.setBounds(10, 80, 100, 25);
+        passwordLabelAgain.setBounds(10, 80, 120, 25);
         this.add(passwordLabelAgain);
         passwordFieldAgain = new JPasswordField(20);
-        passwordFieldAgain.setBounds(130,80,165,25);
+        passwordFieldAgain.setBounds(320,80,450,25);
         this.add(passwordFieldAgain);
     }
 
     public void addRegisterButton(){
         registerButton = new JButton("Register");
-        registerButton.setBounds(10, 110,90,25);
+        registerButton.setBounds(320, 110,450,25);
         this.add(registerButton);
     }
 }
