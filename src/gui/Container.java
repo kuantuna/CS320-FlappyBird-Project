@@ -2,10 +2,8 @@ package gui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class Container extends JPanel implements ActionListener {
+public class Container extends JPanel {
     private static CardLayout cardLayout;
     private static JPanel containerLRPanel, entrancePanel, gamePanel;
 
@@ -29,15 +27,7 @@ public class Container extends JPanel implements ActionListener {
         return cardLayout;
     }
 
-    @Override
-    protected void paintComponent(Graphics g)
-    {
-        super.paintComponent(g);
-        Main.getFrame().repaint(g);
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
+    public static JPanel getGamePanel(){
+        return gamePanel;
     }
 }

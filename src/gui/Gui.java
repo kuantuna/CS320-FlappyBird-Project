@@ -2,17 +2,15 @@ package gui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class Gui extends JFrame implements ActionListener {
+public class Gui extends JFrame {
 
     public static final int SCREEN_WIDTH = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
     public static final int SCREEN_HEIGHT = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
     private static JPanel containerPanel;
 
     public Gui(){
-        Timer timer = new Timer(20, this);
+
 
         this.setTitle("Flappy Bird");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -24,17 +22,10 @@ public class Gui extends JFrame implements ActionListener {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
 
-        timer.start();
     }
 
     public static JPanel getContainerPanel(){
         return containerPanel;
     }
 
-    public void repaint(Graphics g){ }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        containerPanel.repaint();
-    }
 }
