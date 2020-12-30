@@ -7,9 +7,10 @@ import java.awt.event.ActionListener;
 
 public class Game extends JPanel implements ActionListener {
 
-    private static Renderer renderer;
+    private Renderer renderer;
 
     public Game(){
+        setLayout(new GridLayout());
         Timer timer = new Timer(20, this);
         renderer = new Renderer();
         this.add(renderer);
@@ -17,7 +18,8 @@ public class Game extends JPanel implements ActionListener {
     }
 
     public static void repaint(Graphics g){
-        System.out.println("Hello");
+        g.setColor(Color.CYAN);
+        g.fillRect(0,0,Gui.SCREEN_WIDTH,Gui.SCREEN_HEIGHT);
         // Columnlar oluşacak
     }
 

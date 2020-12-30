@@ -6,7 +6,8 @@ import java.awt.*;
 public class ContainerLR extends JPanel {
 
     private static JTabbedPane tabs;
-    private static JPanel loginPanel, registerPanel;
+    private static Login loginPanel;
+    private static Register registerPanel;
 
     public ContainerLR(){
         this.setLayout(new BorderLayout());

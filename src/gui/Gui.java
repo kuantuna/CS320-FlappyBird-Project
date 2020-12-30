@@ -7,7 +7,7 @@ public class Gui extends JFrame {
 
     public static final int SCREEN_WIDTH = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
     public static final int SCREEN_HEIGHT = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
-    private static JPanel containerPanel;
+    private static Container containerPanel;
 
     public Gui(){
 
@@ -24,7 +24,7 @@ public class Gui extends JFrame {
 
     }
 
-    public static JPanel getContainerPanel(){
+    public static Container getContainerPanel(){
         return containerPanel;
     }
 

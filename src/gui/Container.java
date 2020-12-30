@@ -5,7 +5,9 @@ import java.awt.*;
 
 public class Container extends JPanel {
     private static CardLayout cardLayout;
-    private static JPanel containerLRPanel, entrancePanel, gamePanel;
+    private static Game gamePanel;
+    private static ContainerLR containerLRPanel;
+    private static Entrance entrancePanel;
 
     public Container(){
         cardLayout = new CardLayout();
@@ -27,7 +29,7 @@ public class Container extends JPanel {
         return cardLayout;
     }
 
-    public static JPanel getGamePanel(){
+    public static Game getGamePanel(){
         return gamePanel;
     }
 }

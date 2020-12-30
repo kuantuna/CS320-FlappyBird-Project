@@ -6,7 +6,8 @@ import java.awt.*;
 public class Entrance extends JPanel{
 
     private static JTabbedPane tabs;
-    private static JPanel startPanel, leaderboardPanel;
+    private static Start startPanel;
+    private static Leaderboard leaderboardPanel;
 
     public Entrance(){
         this.setLayout(new BorderLayout());
