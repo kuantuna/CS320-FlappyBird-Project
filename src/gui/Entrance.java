@@ -9,7 +9,7 @@ public class Entrance extends JPanel{
     private static JPanel startPanel, leaderboardPanel;
 
     public Entrance(){
-        setLayout(new BorderLayout());
+        this.setLayout(new BorderLayout());
         tabs = new JTabbedPane();
 
         startPanel = new Start();
@@ -18,6 +18,6 @@ public class Entrance extends JPanel{
         leaderboardPanel = new Leaderboard();
         tabs.add(leaderboardPanel, "Leaderboard");
 
-        add(tabs);
+        this.add(tabs);
     }
 }

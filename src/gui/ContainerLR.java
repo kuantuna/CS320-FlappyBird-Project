@@ -9,7 +9,7 @@ public class ContainerLR extends JPanel {
     private static JPanel loginPanel, registerPanel;
 
     public ContainerLR(){
-        setLayout(new BorderLayout());
+        this.setLayout(new BorderLayout());
         tabs = new JTabbedPane();
 
         loginPanel = new Login();
@@ -18,7 +18,7 @@ public class ContainerLR extends JPanel {
         registerPanel = new Register();
         tabs.add("Register", registerPanel);
 
-        add(tabs);
+        this.add(tabs);
     }
 
     public static JTabbedPane getTabs(){

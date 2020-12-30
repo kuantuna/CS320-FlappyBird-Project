@@ -11,15 +11,15 @@ public class Container extends JPanel implements ActionListener {
 
     public Container(){
         cardLayout = new CardLayout();
-        setLayout(cardLayout);
+        this.setLayout(cardLayout);
         containerLRPanel = new ContainerLR();
         entrancePanel = new Entrance();
         gamePanel = new Game();
         // Add here new panels
 
-        add(containerLRPanel, "1");
-        add(entrancePanel, "2");
-        add(gamePanel, "3");
+        this.add(containerLRPanel, "1");
+        this.add(entrancePanel, "2");
+        this.add(gamePanel, "3");
         // Add here when new panels are added
 
         cardLayout.show(this, "1");

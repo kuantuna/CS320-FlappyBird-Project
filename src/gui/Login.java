@@ -14,10 +14,10 @@ public class Login extends JPanel {
     private static JButton loginButton;
 
     public Login(){
-        setLayout(null);
-        addUsername();
-        addPassword();
-        addLoginButton();
+        this.setLayout(null);
+        this.addUsername();
+        this.addPassword();
+        this.addLoginButton();
         class LoginButtonActionListener implements ActionListener{
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -26,6 +26,7 @@ public class Login extends JPanel {
                 char[] passwordInput = passwordField.getPassword();
                 if(doesCredentialsExist(usernameInput, passwordInput)){
                     JOptionPane.showMessageDialog(((Component) e.getSource()).getParent(),"Success");
+                    Main.getFrame().setMinimumSize(new Dimension(Gui.SCREEN_WIDTH, Gui.SCREEN_HEIGHT));
                     Container.getCardLayout().show(Gui.getContainerPanel(),"2");
                 }
                 else{
@@ -39,25 +40,25 @@ public class Login extends JPanel {
     public void addUsername(){
         usernameLabel = new JLabel("Username");
         usernameLabel.setBounds(10, 20, 80, 25);
-        add(usernameLabel);
+        this.add(usernameLabel);
         usernameField = new JTextField(20);
         usernameField.setBounds(100, 20, 165, 25);
-        add(usernameField);
+        this.add(usernameField);
     }
 
     public void addPassword(){
         passwordLabel = new JLabel("Password");
         passwordLabel.setBounds(10, 50, 80, 25);
-        add(passwordLabel);
+        this.add(passwordLabel);
         passwordField = new JPasswordField(20);
         passwordField.setBounds(100,50,165,25);
-        add(passwordField);
+        this.add(passwordField);
     }
 
     public void addLoginButton(){
         loginButton = new JButton("Login");
         loginButton.setBounds(10, 80, 80, 25);
-        add(loginButton);
+        this.add(loginButton);
     }
 
     public static JTextField getUsernameField() { return usernameField; }

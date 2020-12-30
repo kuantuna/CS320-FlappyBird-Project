@@ -8,7 +8,7 @@ public class Start extends JPanel {
 
     public Start(){
         JButton startButton = new JButton("START");
-        add(startButton);
+        this.add(startButton);
         class StartButtonActionListener implements ActionListener{
 
             @Override
