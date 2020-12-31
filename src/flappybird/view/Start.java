@@ -5,9 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 
-import static com.flappybird.view.Window.*;
+import static flappybird.view.Window.*;
 
-public class  Start extends JPanel {
+public class Start extends JPanel {
 
     public Start(){
         JButton startButton = new JButton("START");
@@ -22,7 +22,7 @@ public class  Start extends JPanel {
 
                 java.awt.EventQueue.invokeLater(() -> {
 
-                    com.flappybird.view.Window window = new flappybird.view.Window(WIDTH, HEIGHT, "Flappy Bird", game);
+                    Window window = new Window(WIDTH, HEIGHT, "Flappy Bird", game);
 
                 });
             }

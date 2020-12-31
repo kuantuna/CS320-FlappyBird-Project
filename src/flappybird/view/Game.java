@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package flappybird.view;
 
 import flappybird.controller.Controller;
+import flappybird.model.Bird;
 import flappybird.model.Tube;
 import flappybird.model.TubeColumn;
 import flappybird.model.proxy.ProxyImage;
@@ -75,14 +72,14 @@ public class Game extends JPanel implements ActionListener {
         } else {
             g2.setColor(Color.black);
             g.setFont(new Font("Arial", 1, 20));
-            g2.drawString("Press Enter to Start the Game", com.flappybird.view.Window.WIDTH / 2 - 150, com.flappybird.view.Window.HEIGHT / 2);
+            g2.drawString("Press Enter to Start the Game", Window.WIDTH / 2 - 150, Window.HEIGHT / 2);
             g2.setColor(Color.black);
             g.setFont(new Font("Arial", 1, 15));
-            g2.drawString("Powered by Tuğcan Hoşer", com.flappybird.view.Window.WIDTH - 200, com.flappybird.view.Window.HEIGHT - 50);
+            g2.drawString("Powered by Tuğcan Hoşer", Window.WIDTH - 200, Window.HEIGHT - 50);
         }
         g2.setColor(Color.black);
         g.setFont(new Font("Arial", 1, 20));
-        g2.drawString("High Score: " + highScore, com.flappybird.view.Window.WIDTH - 160, 20);
+        g2.drawString("High Score: " + highScore, Window.WIDTH - 160, 20);
 
         g.dispose();
     }
@@ -90,7 +87,7 @@ public class Game extends JPanel implements ActionListener {
     private void restartGame() {
         if (!isRunning) {
             this.isRunning = true;
-            this.bird = new Bird(com.flappybird.view.Window.WIDTH / 2, com.flappybird.view.Window.HEIGHT / 2);
+            this.bird = new Bird(Window.WIDTH / 2, Window.HEIGHT / 2);
             this.tubeColumn = new TubeColumn();
         }
     }
@@ -144,3 +141,4 @@ public class Game extends JPanel implements ActionListener {
         }
     }
 }
+
