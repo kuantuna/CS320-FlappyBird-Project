@@ -1,6 +1,8 @@
 
 package flappybird.model.proxy;
 
+import flappybird.model.proxy.IImage;
+
 import javax.swing.ImageIcon;
 
 public class ProxyImage implements IImage {
