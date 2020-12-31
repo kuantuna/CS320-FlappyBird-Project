@@ -1,4 +1,8 @@
 package flappybird.model;
+import  flappybird.model.proxy.ProxyImage;
+
+import java.awt.*;
+import java.awt.image.ImageObserver;
 
 public class Tube extends GameObject {
 

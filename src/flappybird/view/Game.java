@@ -21,6 +21,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 
+
 public class Game extends JPanel implements ActionListener {
 
     private boolean isRunning = false;
@@ -97,8 +98,6 @@ public class Game extends JPanel implements ActionListener {
         if (this.tubeColumn.getPoints() > highScore) {
             this.highScore = this.tubeColumn.getPoints();
         }
-        Leaderboard leaderboard = new Leaderboard(this.tubeColumn.getPoints());
-
 
         this.tubeColumn.setPoints(0);
 

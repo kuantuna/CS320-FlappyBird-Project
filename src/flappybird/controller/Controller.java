@@ -1,6 +1,7 @@
 
 package flappybird.controller;
 
+import flappybird.model.Bird;
 import java.awt.event.KeyEvent;
 
 
