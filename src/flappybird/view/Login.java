@@ -2,7 +2,6 @@ package flappybird.view;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
@@ -28,7 +27,7 @@ public class Login extends JPanel {
                 if(doesCredentialsExist(usernameInput, passwordInput)){
                     JOptionPane.showMessageDialog(((Component) e.getSource()).getParent(),"Success");
                     Window.getFrame().setMinimumSize(new Dimension(Gui.SCREEN_WIDTH,Gui.SCREEN_HEIGHT));
-
+                    Container.getCardLayout().show(Gui.getContainerPanel(),"2");
                 }
                 else{
                     JOptionPane.showMessageDialog(((Component) e.getSource()).getParent(),"Invalid credentials");

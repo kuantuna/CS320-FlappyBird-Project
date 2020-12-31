@@ -2,13 +2,12 @@ package flappybird.view;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.Container;
 
 public class Gui extends JFrame {
 
     public static final int SCREEN_WIDTH = 800;
-    public static final int SCREEN_HEIGHT = 600;
-    private static java.awt.Container containerPanel;
+    public static final int SCREEN_HEIGHT = 500;
+    private static Container containerPanel;
 
     public Gui(){
 
@@ -17,7 +16,7 @@ public class Gui extends JFrame {
         this.setSize(SCREEN_WIDTH,SCREEN_HEIGHT);
         this.setMinimumSize(new Dimension(SCREEN_WIDTH,SCREEN_HEIGHT));
 
-        containerPanel = new java.awt.Container();
+        containerPanel = new Container();
         this.add(containerPanel);
         this.pack();
         this.setLocationRelativeTo(null);

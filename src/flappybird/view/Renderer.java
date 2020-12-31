@@ -14,7 +14,6 @@ public class Renderer extends JPanel implements ActionListener {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-     //   Game.repaint(g); // Degisebilir
     }
 
     @Override

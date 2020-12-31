@@ -1,10 +1,7 @@
-
 package flappybird.view;
 
 import java.awt.Dimension;
 import javax.swing.*;
-
-
 
 public class Window {
     public static int WIDTH = 800;
