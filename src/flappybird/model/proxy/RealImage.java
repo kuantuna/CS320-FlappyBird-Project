@@ -1,8 +1,6 @@
-
 package flappybird.model.proxy;
 
 import javax.swing.ImageIcon;
-
 
 public class RealImage implements IImage {
 
@@ -19,5 +17,4 @@ public class RealImage implements IImage {
         }
         return imageIcon;
     }
-
 }

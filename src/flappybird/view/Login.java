@@ -13,7 +13,7 @@ public class Login extends JPanel {
     private static JPasswordField passwordField;
     private static JButton loginButton;
 
-    public Login(){
+    public Login() {
         this.setLayout(null);
         this.addUsername();
         this.addPassword();

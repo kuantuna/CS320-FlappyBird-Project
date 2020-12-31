@@ -1,15 +1,12 @@
-
 package flappybird.controller;
 
 import flappybird.model.Bird;
 import java.awt.event.KeyEvent;
 
-
 public class Controller implements IStrategy {
 
     @Override
-    public void controller(Bird bird, KeyEvent kevent) {
-    }
+    public void controller(Bird bird, KeyEvent kevent) { }
 
     @Override
     public void controllerReleased(Bird bird, KeyEvent kevent) {
@@ -17,5 +14,4 @@ public class Controller implements IStrategy {
             bird.jump();
         }
     }
-
 }

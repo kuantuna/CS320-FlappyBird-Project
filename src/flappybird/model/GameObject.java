@@ -1,10 +1,8 @@
-
 package flappybird.model;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.ImageObserver;
-
 
 public abstract class GameObject {
     protected int x, y;
@@ -71,7 +69,6 @@ public abstract class GameObject {
     public void setImage(Image image) {
         this.image = image;
     }
-
 
     public abstract void tick();
     public abstract void render(Graphics2D g, ImageObserver obs);

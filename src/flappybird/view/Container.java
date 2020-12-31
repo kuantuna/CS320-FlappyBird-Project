@@ -28,7 +28,6 @@ public class Container extends JPanel {
     public static CardLayout getCardLayout(){
         return cardLayout;
     }
-
     public static Game getGamePanel(){
         return gamePanel;
     }

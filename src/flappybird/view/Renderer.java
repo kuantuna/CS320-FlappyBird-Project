@@ -7,9 +7,7 @@ import java.awt.event.ActionListener;
 
 public class Renderer extends JPanel implements ActionListener {
 
-    public Renderer(){
-
-    }
+    public Renderer() { }
 
     @Override
     protected void paintComponent(Graphics g) {

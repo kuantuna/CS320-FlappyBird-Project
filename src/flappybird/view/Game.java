@@ -1,4 +1,3 @@
-
 package flappybird.view;
 
 import flappybird.controller.Controller;
@@ -19,8 +18,6 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-
-
 
 public class Game extends JPanel implements ActionListener {
 
@@ -47,14 +44,11 @@ public class Game extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Toolkit.getDefaultToolkit().sync();
         if (isRunning) {
-            ////////////////////////////////
             bird.tick();
             tubeColumn.tick();
             checkColision();
             score++;
-            ///////////////////////////////
         }
-
         repaint();
     }
 
@@ -63,20 +57,18 @@ public class Game extends JPanel implements ActionListener {
         Graphics2D g2 = (Graphics2D) g;
         g2.drawImage(background, 0, 0, null);
         if (isRunning) {
-            ///////////////////////////////
             this.bird.render(g2, this);
             this.tubeColumn.render(g2, this);
             g2.setColor(Color.black);
             g.setFont(new Font("Arial", 1, 20));
             g2.drawString("Your score: " + this.tubeColumn.getPoints(), 10, 20);
-            ///////////////////////////////
         } else {
             g2.setColor(Color.black);
             g.setFont(new Font("Arial", 1, 20));
             g2.drawString("Press Enter to Start the Game", Window.WIDTH / 2 - 150, Window.HEIGHT / 2);
             g2.setColor(Color.black);
             g.setFont(new Font("Arial", 1, 15));
-            g2.drawString("Powered by Tuğcan Hoşer", Window.WIDTH - 200, Window.HEIGHT - 50);
+            //g2.drawString("", Window.WIDTH - 200, Window.HEIGHT - 50);
         }
         g2.setColor(Color.black);
         g.setFont(new Font("Arial", 1, 20));
@@ -100,7 +92,6 @@ public class Game extends JPanel implements ActionListener {
         }
 
         this.tubeColumn.setPoints(0);
-
     }
 
     private void checkColision() {
@@ -116,7 +107,6 @@ public class Game extends JPanel implements ActionListener {
         }
     }
 
-    // Key
     private class GameKeyAdapter extends KeyAdapter {
 
         private final Controller controller;

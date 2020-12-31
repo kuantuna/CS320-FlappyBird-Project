@@ -6,7 +6,6 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.ImageObserver;
 
-
 public class Bird extends GameObject {
 
     private ProxyImage proxyImage;
@@ -61,7 +60,6 @@ public class Bird extends GameObject {
         g.drawImage(image, x, y, obs);
         tube[0].render(g, obs);
     }
-
 
     public Rectangle getBounds() {
         return new Rectangle(x, y, width, height);

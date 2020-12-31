@@ -66,18 +66,15 @@ public class TubeColumn {
         }
     }
 
-    public List<Tube> getTubes() {
-        return tubes;
-    }
-
-    public void setTubes(List<Tube> tubes) {
-        this.tubes = tubes;
-    }
-
     public int getPoints() {
         return points;
     }
-
+    public List<Tube> getTubes() {
+        return tubes;
+    }
+    public void setTubes(List<Tube> tubes) {
+        this.tubes = tubes;
+    }
     public void setPoints(int points) {
         this.points = points;
     }

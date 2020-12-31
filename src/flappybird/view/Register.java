@@ -10,7 +10,7 @@ public class Register extends JPanel {
     private static JPasswordField passwordField, passwordFieldAgain;
     private static JButton registerButton;
 
-    public Register(){
+    public Register() {
         this.setLayout(null);
         this.addUsername();
         this.addPassword();
