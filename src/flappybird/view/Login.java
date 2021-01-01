@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Arrays;
 
 public class Login extends JPanel {
@@ -28,6 +30,7 @@ public class Login extends JPanel {
                     JOptionPane.showMessageDialog(((Component) e.getSource()).getParent(),"Success");
                     Window.getFrame().setMinimumSize(new Dimension(Gui.SCREEN_WIDTH,Gui.SCREEN_HEIGHT));
                     Container.getCardLayout().show(Gui.getContainerPanel(),"2");
+                    ContainerLR.closeConnection();
                 }
                 else{
                     JOptionPane.showMessageDialog(((Component) e.getSource()).getParent(),"Invalid credentials");
@@ -64,9 +67,15 @@ public class Login extends JPanel {
     public static JTextField getUsernameField() { return usernameField; }
     public static JPasswordField getPasswordField() { return passwordField; }
 
-    private boolean doesCredentialsExist(String usernameInput, char[] passwordInput){
-        String registeredUsername1 = "123";
-        char[] registeredPassword1 = "123".toCharArray();
-        return usernameInput.equals(registeredUsername1) && Arrays.equals(passwordInput, registeredPassword1);
+    private boolean doesCredentialsExist(String usernameInput, char[] passwordInput) {
+        try {
+            Statement statement = ContainerLR.getConnection().createStatement();
+            String selectQuery = "SELECT Username, Password FROM AuthenticationSystem where Username = '" + usernameInput + "' and Password = '" + new String(passwordInput) + "'";
+            ResultSet resultSet = statement.executeQuery(selectQuery);
+            return resultSet.next();
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 }
