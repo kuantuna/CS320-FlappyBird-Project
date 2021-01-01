@@ -12,6 +12,7 @@ public class Window {
 
         JFrame frame = new JFrame();
         frame.setSize(800,500);
+
         frame.add(game);
         frame.setTitle(title);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
