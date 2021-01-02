@@ -10,6 +10,7 @@ import java.util.Arrays;
 
 public class Login extends JPanel {
 
+    private static String usernameInput;
     private static JLabel usernameLabel, passwordLabel;
     private static JTextField usernameField;
     private static JPasswordField passwordField;
@@ -24,17 +25,17 @@ public class Login extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Db will be added this is just for test purposes
-                String usernameInput = usernameField.getText();
+                usernameInput = usernameField.getText();
                 char[] passwordInput = passwordField.getPassword();
                 if(doesCredentialsExist(usernameInput, passwordInput)){
                     JOptionPane.showMessageDialog(((Component) e.getSource()).getParent(),"Success");
                     Window.getFrame().setMinimumSize(new Dimension(Gui.SCREEN_WIDTH,Gui.SCREEN_HEIGHT));
                     Container.getCardLayout().show(Gui.getContainerPanel(),"2");
-                    ContainerLR.closeConnection();
                 }
                 else{
                     JOptionPane.showMessageDialog(((Component) e.getSource()).getParent(),"Invalid credentials");
                 }
+                Window.closeConnection();
             }
         }
         loginButton.addActionListener(new LoginButtonActionListener());
@@ -66,10 +67,12 @@ public class Login extends JPanel {
 
     public static JTextField getUsernameField() { return usernameField; }
     public static JPasswordField getPasswordField() { return passwordField; }
+    public static String getUsernameInput(){ return usernameInput; }
 
     private boolean doesCredentialsExist(String usernameInput, char[] passwordInput) {
         try {
-            Statement statement = ContainerLR.getConnection().createStatement();
+            Window.establishConnection();
+            Statement statement = Window.getConnection().createStatement();
             String selectQuery = "SELECT Username, Password FROM AuthenticationSystem where Username = '" + usernameInput + "' and Password = '" + new String(passwordInput) + "'";
             ResultSet resultSet = statement.executeQuery(selectQuery);
             return resultSet.next();

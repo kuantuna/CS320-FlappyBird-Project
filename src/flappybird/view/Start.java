@@ -13,10 +13,8 @@ public class Start extends JPanel {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-              // Container.getCardLayout().show(Gui.getContainerPanel(),"3");
-
-                Game game = new Game();
-                java.awt.EventQueue.invokeLater(() -> { Window window = new Window(WIDTH, HEIGHT, "Flappy Bird", game); });
+                Container.getCardLayout().show(Gui.getContainerPanel(),"3");
+                Container.getGamePanel().grabFocus();
             }
         }
         startButton.addActionListener(new StartButtonActionListener());

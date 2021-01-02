@@ -24,12 +24,15 @@ public class Register extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(new String(passwordField.getPassword()).equals(new String(passwordFieldAgain.getPassword()))) {
-                    if (usernameExist(usernameField.getText()))
+                    if (usernameExist(usernameField.getText())) {
                         JOptionPane.showMessageDialog(((Component) e.getSource()).getParent(), "The username already exists");
+                        Window.closeConnection();
+                    }
                     else {
                         try {
                             String addPlayer = "INSERT INTO AuthenticationSystem(Username, Password) VALUES('" + usernameField.getText() + "', '" + new String(passwordField.getPassword()) + "')";
                             statement.executeUpdate(addPlayer);
+                            Window.closeConnection();
                             Login.getUsernameField().setText(usernameField.getText());
                             Login.getPasswordField().setText("");
                             usernameField.setText("");
@@ -85,7 +88,8 @@ public class Register extends JPanel {
     }
     private static boolean usernameExist(String username){
         try {
-            statement = ContainerLR.getConnection().createStatement();
+            Window.establishConnection();
+            statement = Window.getConnection().createStatement();
             String selectQuery = "SELECT Username FROM AuthenticationSystem where Username = '" + username + "'";
             ResultSet resultSet = statement.executeQuery(selectQuery);
             return resultSet.next();
@@ -93,5 +97,6 @@ public class Register extends JPanel {
             e.printStackTrace();
             return true;
         }
+
     }
 }
