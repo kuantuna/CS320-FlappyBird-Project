@@ -13,7 +13,7 @@ public class Window {
 
     private static final String URL = "jdbc:mysql://localhost:3306/flappybird?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=Turkey";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "gt19981989";
+    private static final String PASSWORD = "Uk0155702799";
 
     private static Connection connection = null;
 
@@ -39,7 +39,6 @@ public class Window {
 
         JFrame frame = new JFrame();
         frame.setSize(800,500);
-
         frame.add(game);
         frame.setTitle(title);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
