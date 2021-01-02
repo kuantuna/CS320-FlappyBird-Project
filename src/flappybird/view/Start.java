@@ -11,6 +11,8 @@ public class Start extends JPanel {
         this.add(startButton);
         JButton logoutButton = new JButton("LOGOUT");
         this.add(logoutButton);
+        JButton existButton = new JButton("EXIT");
+        this.add(existButton);
         class StartButtonActionListener implements ActionListener{
 
             @Override
@@ -26,7 +28,16 @@ public class Start extends JPanel {
                 Container.getCardLayout().show(Gui.getContainerPanel(),"1");
             }
         }
+
+        class ExistButtonActionListener implements ActionListener{
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(1);
+            }
+        }
         startButton.addActionListener(new StartButtonActionListener());
         logoutButton.addActionListener(new LogoutButtonActionListener());
+        existButton.addActionListener(new ExistButtonActionListener());
     }
 }
