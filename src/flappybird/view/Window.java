@@ -13,7 +13,7 @@ public class Window {
 
     private static final String URL = "jdbc:mysql://localhost:3306/flappybird?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=Turkey";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "Uk0155702799";
+    private static final String PASSWORD = "25501460474On.";
 
     private static Connection connection = null;
 
