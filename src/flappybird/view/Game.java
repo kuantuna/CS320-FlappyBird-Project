@@ -16,6 +16,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -30,7 +32,6 @@ public class Game extends JPanel implements ActionListener {
     private int highScore;
 
     public Game() {
-
         proxyImage = new ProxyImage("/assets/background2.png");
         background = proxyImage.loadImage().getImage();
         setFocusable(true);
@@ -65,7 +66,8 @@ public class Game extends JPanel implements ActionListener {
         } else {
             g2.setColor(Color.black);
             g.setFont(new Font("Arial", 1, 20));
-            g2.drawString("Press Enter to Start the Game", Window.WIDTH / 2 - 150, Window.HEIGHT / 2);
+            g2.drawString("Press Enter to Start the Game", Window.WIDTH / 2 - 150, Window.HEIGHT / 2 - 35);
+            g2.drawString("Press Esc to go back the Entrance Page", Window.WIDTH / 2 - 200, Window.HEIGHT / 2 + 15);
             g2.setColor(Color.black);
             g.setFont(new Font("Arial", 1, 15));
             //g2.drawString("", Window.WIDTH - 200, Window.HEIGHT - 50);
@@ -90,7 +92,26 @@ public class Game extends JPanel implements ActionListener {
         if (this.tubeColumn.getPoints() > highScore) {
             this.highScore = this.tubeColumn.getPoints();
         }
-
+        try{
+            Window.establishConnection();
+            Statement statement = Window.getConnection().createStatement();
+            String selectQuery = "SELECT score FROM AuthenticationSystem WHERE username = '" + Login.getUsernameInput() + "'";
+            ResultSet resultSet = statement.executeQuery(selectQuery);
+            while(resultSet.next()){
+                if(resultSet.getInt("score")<highScore){
+                    String updateQuery = "UPDATE AuthenticationSystem SET score = " + highScore +
+                            " WHERE username = '" + Login.getUsernameInput() +"'";
+                    statement.executeUpdate(updateQuery);
+                    break;
+                }
+                else{
+                    break;
+                }
+            }
+            Window.closeConnection();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         this.tubeColumn.setPoints(0);
     }
 
@@ -119,6 +140,9 @@ public class Game extends JPanel implements ActionListener {
         public void keyPressed(KeyEvent e) {
             if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                 restartGame();
+            }
+            else if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+                Container.getCardLayout().show(Gui.getContainerPanel(),"2");
             }
         }
 
