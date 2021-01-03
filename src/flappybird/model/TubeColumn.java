@@ -54,7 +54,7 @@ public class TubeColumn {
             if (changeSpeed == points) {
                 this.speed += 1;
                 changeSpeed += 5;
-                System.out.println(speed);
+
             }
             initTubes();
         }
