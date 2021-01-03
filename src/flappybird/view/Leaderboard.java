@@ -2,8 +2,7 @@ package flappybird.view;
 
 import javax.swing.*;
 import java.awt.*;
-import java.sql.ResultSet;
-import java.sql.Statement;
+
 
 public class Leaderboard extends JPanel {
 

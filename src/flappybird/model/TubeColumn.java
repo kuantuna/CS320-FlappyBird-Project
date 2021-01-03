@@ -2,7 +2,6 @@ package flappybird.model;
 
 import flappybird.view.Window;
 import java.awt.Graphics2D;
-
 import java.awt.image.ImageObserver;
 import java.util.ArrayList;
 import java.util.List;
@@ -72,9 +71,7 @@ public class TubeColumn {
     public List<Tube> getTubes() {
         return tubes;
     }
-    public void setTubes(List<Tube> tubes) {
-        this.tubes = tubes;
-    }
+
     public void setPoints(int points) {
         this.points = points;
     }

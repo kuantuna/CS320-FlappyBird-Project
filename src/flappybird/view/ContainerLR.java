@@ -2,7 +2,7 @@ package flappybird.view;
 
 import javax.swing.*;
 import java.awt.*;
-import java.sql.*;
+
 
 public class ContainerLR extends JPanel {
 

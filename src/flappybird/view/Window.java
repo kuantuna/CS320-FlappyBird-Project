@@ -1,10 +1,9 @@
 package flappybird.view;
 
-import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import javax.swing.*;
+
 
 public class Window {
 
@@ -35,21 +34,7 @@ public class Window {
         }
     }
 
-    public Window(int width, int height, String title, Game game) {
 
-        JFrame frame = new JFrame();
-        frame.setSize(800,500);
-        frame.add(game);
-        frame.setTitle(title);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setMaximumSize(new Dimension(width, height));
-        frame.setPreferredSize(new Dimension(width, height));
-        frame.setMinimumSize(new Dimension(width, height));
-        frame.setLocationRelativeTo(null);
-        frame.setResizable(false);
-        frame.setVisible(true);
-
-    }
     private static Gui frame;
     public static void main(String[] args) {
         frame = new Gui();

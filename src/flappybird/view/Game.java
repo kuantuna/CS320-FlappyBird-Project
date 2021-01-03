@@ -108,6 +108,7 @@ public class Game extends JPanel implements ActionListener {
                     break;
                 }
             }
+
             Window.closeConnection();
         }catch(Exception e){
             e.printStackTrace();
